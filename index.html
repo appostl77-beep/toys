@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnnToys | Вязаные игрушки ручной работы</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;500;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-clouds"></div>
+        <div class="container header-container">
+            <div class="logo-container">
+                <div class="logo-image">
+                    <img src="images/logo.png" alt="Логотип AnnToys">
+                </div>
+                <div class="logo-text">
+                    <div class="logo-name">AnnToys</div>
+                    <div class="logo-tagline">Вязаные игрушки ручной работы</div>
+                </div>
+            </div>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#catalog">Каталог</a></li>
+                    <li><a href="#custom">На заказ</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="cloud-decoration cloud-1"></div>
+        <div class="cloud-decoration cloud-2"></div>
+        <div class="cloud-decoration cloud-3"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1>Уникальные вязаные игрушки ручной работы</h1>
+                <p>Экологичные, безопасные и неповторимые друзья для вашего ребенка</p>
+                <div class="hero-buttons">
+                    <a href="#catalog" class="btn btn-primary">Выбрать игрушку</a>
+                    <a href="#custom" class="btn btn-secondary">Заказать индивидуальную</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-hand-sparkles"></i></div>
+                    <h3>100% ручная работа</h3>
+                    <p>Каждая игрушка создается вручную с любовью и вниманием к деталям</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Натуральные материалы</h3>
+                    <p>Только гипоаллергенная пряжа и экологичный наполнитель</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Индивидуальный дизайн</h3>
+                    <p>Создадим игрушку по вашему эскизу или фотографии</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-truck"></i></div>
+                    <h3>Бесплатная доставка</h3>
+                    <p>При заказе от 3000 рублей по всей России</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog -->
+    <section class="catalog" id="catalog">
+        <div class="container">
+            <h2 class="section-title">Наши игрушки</h2>
+            <div class="category-filter">
+                <button class="filter-btn active" data-category="all">Все</button>
+                <button class="filter-btn" data-category="animals">Животные</button>
+                <button class="filter-btn" data-category="fantasy">Фэнтези</button>
+                <button class="filter-btn" data-category="newyear">Новогодние</button>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-category="animals">
+                    <div class="product-image">
+                        <img src="images/bear.jpg" alt="Медвежонок Тедди">
+                    </div>
+                    <div class="product-info">
+                        <h3>Медвежонок Тедди</h3>
+                        <p>25 см, пряжа альпака</p>
+                        <span class="price">2 500 руб</span>
+                        <button class="btn order-btn">Заказать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="fantasy">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1589870465303-42c7a3a1aeb4?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=400" alt="Единорог Звездочка">
+                    </div>
+                    <div class="product-info">
+                        <h3>Единорог Звездочка</h3>
+                        <p>30 см, хлопковая пряжа</p>
+                        <span class="price">3 200 руб</span>
+                        <button class="btn order-btn">Заказать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="animals">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=400" alt="Кролик Пуфик">
+                    </div>
+                    <div class="product-info">
+                        <h3>Кролик Пуфик</h3>
+                        <p>20 см, мериносовая шерсть</p>
+                        <span class="price">2 800 руб</span>
+                        <button class="btn order-btn">Заказать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="fantasy">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1589870465303-42c7a3a1aeb4?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=400" alt="Дракончик Огнегрив">
+                    </div>
+                    <div class="product-info">
+                        <h3>Дракончик Огнегрив</h3>
+                        <p>28 см, акриловая пряжа</p>
+                        <span class="price">3 500 руб</span>
+                        <button class="btn order-btn">Заказать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="newyear">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600078686889-8c42747c25fe?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=400" alt="Снеговик Умка">
+                    </div>
+                    <div class="product-info">
+                        <h3>Снеговик Умка</h3>
+                        <p>22 см, мохеровая пряжа</p>
+                        <span class="price">2 900 руб</span>
+                        <button class="btn order-btn">Заказать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="animals">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=400" alt="Лисичка Рыжуля">
+                    </div>
+                    <div class="product-info">
+                        <h3>Лисичка Рыжуля</h3>
+                        <p>18 см, хлопковая пряжа</p>
+                        <span class="price">2 600 руб</span>
+                        <button class="btn order-btn">Заказать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Order Section -->
+    <section class="custom-order" id="custom">
+        <div class="container">
+            <h2 class="section-title">Игрушки на заказ</h2>
+            <div class="custom-order-content">
+                <p>Хотите уникальную игрушку по вашим эскизам или в особом стиле? Мы создадим эксклюзивную вязаную игрушку специально для вас!</p>
+            </div>
+            
+            <div class="custom-order-steps">
+                <div class="custom-step">
+                    <div class="step-number">1</div>
+                    <h3>Обсуждение</h3>
+                    <p>Расскажите нам о вашей идее</p>
+                </div>
+                <div class="custom-step">
+                    <div class="step-number">2</div>
+                    <h3>Дизайн</h3>
+                    <p>Создадим эскиз и утвердим детали</p>
+                </div>
+                <div class="custom-step">
+                    <div class="step-number">3</div>
+                    <h3>Изготовление</h3>
+                    <p>Вяжем игрушку по вашему заказу</p>
+                </div>
+                <div class="custom-step">
+                    <div class="step-number">4</div>
+                    <h3>Доставка</h3>
+                    <p>Отправляем готовую игрушку вам</p>
+                </div>
+            </div>
+            
+            <div class="order-form">
+                <h3>Заказать индивидуальную игрушку</h3>
+                <form id="customOrderForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="idea">Опишите вашу идею</label>
+                        <textarea id="idea" class="form-control" placeholder="Опишите желаемую игрушку, размер, цвета, особенности..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="attachment">Прикрепить эскиз (если есть)</label>
+                        <input type="file" id="attachment" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить заявку</button>
+                </form>
+                <div id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Заявка отправлена!</h3>
+                    <p>Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacts">
+        <div class="footer-clouds"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo-container">
+                        <div class="logo-image">
+                            <img src="images/logo.png" alt="Логотип AnnToys">
+                        </div>
+                        <div class="logo-text">
+                            <div class="logo-name">AnnToys</div>
+                            <div class="logo-tagline">Вязаные игрушки ручной работы</div>
+                        </div>
+                    </div>
+                    <p>Создаем уникальные игрушки с любовью и заботой.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Меню</h3>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#catalog">Каталог</a></li>
+                        <li><a href="#custom">На заказ</a></li>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +7 (999) 123-45-67</li>
+                        <li><i class="fas fa-envelope"></i> info@anntoys.ru</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Творческая, 15</li>
+                        <li><i class="fas fa-clock"></i> Пн-Пт: 10:00 - 20:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AnnToys. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Оформление заказа</h2>
+            <form id="productOrderForm">
+                <div class="form-group">
+                    <label for="productName">Товар</label>
+                    <input type="text" id="productName" class="form-control" readonly>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerName">Ваше имя</label>
+                        <input type="text" id="customerName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Телефон</label>
+                        <input type="tel" id="customerPhone" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="customerEmail">Email</label>
+                    <input type="email" id="customerEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerAddress">Адрес доставки</label>
+                    <input type="text" id="customerAddress" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Подтвердить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

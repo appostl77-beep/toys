@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnnToys | Вязаные игрушки ручной работы</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;500;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sky-blue: #e6f7ff;
+            --pastel-blue: #c5e3f6;
+            --soft-blue: #a5d1f0;
+            --cloud-white: #ffffff;
+            --milky-white: #fff9f5;
+            --text: #5a5a5a;
+            --accent: #ffb6c1;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: linear-gradient(180deg, var(--sky-blue) 0%, var(--milky-white) 100%);
+            overflow-x: hidden;
+            background-attachment: fixed;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        /* Cloud Header */
+        header {
+            background-color: var(--cloud-white);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(165, 209, 240, 0.15);
+        }
+        
+        .header-clouds {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23e6f7ff"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23e6f7ff"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23e6f7ff"/></svg>');
+            background-size: cover;
+            z-index: -1;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--soft-blue) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid var(--soft-blue);
+            box-shadow: 0 4px 10px rgba(165, 209, 240, 0.3);
+        }
+        
+        .logo-image img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.2rem;
+            color: var(--soft-blue);
+            text-shadow: 2px 2px 4px rgba(197, 227, 246, 0.3);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--soft-blue);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--soft-blue);
+            transition: width 0.3s;
+            border-radius: 2px;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 200px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 Q50,100 100,0 L100,100 L0,100 Z" fill="white" opacity="0.1"/></svg>');
+            background-size: cover;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--text);
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: var(--text);
+        }
+        
+        .btn {
+            background-color: var(--cloud-white);
+            color: var(--soft-blue);
+            padding: 16px 42px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: inline-block;
+            text-decoration: none;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            background-color: var(--milky-white);
+        }
+        
+        .btn-primary {
+            background-color: var(--cloud-white);
+            color: var(--soft-blue);
+        }
+        
+        .btn-secondary {
+            background-color: var(--soft-blue);
+            color: var(--cloud-white);
+        }
+        
+        .cloud-decoration {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        
+        .cloud-1 {
+            top: 20%;
+            left: 5%;
+            width: 150px;
+            animation: float 12s infinite ease-in-out;
+        }
+        
+        .cloud-2 {
+            top: 40%;
+            right: 10%;
+            width: 100px;
+            animation: float 15s infinite ease-in-out;
+            animation-delay: 2s;
+        }
+        
+        .cloud-3 {
+            bottom: 20%;
+            left: 15%;
+            width: 120px;
+            animation: float 18s infinite ease-in-out;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(10px) translateX(-15px); }
+            75% { transform: translateY(-15px) translateX(-5px); }
+        }
+        
+        /* Benefits */
+        .benefits {
+            padding: 100px 0;
+            background-color: var(--milky-white);
+            position: relative;
+            border-radius: 30px;
+            margin: 50px auto;
+            box-shadow: 0 10px 30px rgba(165, 209, 240, 0.2);
+            max-width: 1200px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            color: var(--soft-blue);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .benefit-item {
+            padding: 30px 20px;
+            border-radius: 20px;
+            background-color: var(--cloud-white);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(165, 209, 240, 0.3);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--soft-blue);
+        }
+        
+        .benefit-item h3 {
+            margin: 15px 0;
+            color: var(--text);
+        }
+        
+        /* Catalog */
+        .catalog {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            border: 2px solid var(--soft-blue);
+            border-radius: 30px;
+            background: transparent;
+            color: var(--soft-blue);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--soft-blue);
+            color: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .product-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(165, 209, 240, 0.3);
+            transition: transform 0.3s;
+            background: var(--cloud-white);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(45deg, var(--sky-blue), var(--pastel-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 25px;
+            background: var(--cloud-white);
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .product-info p {
+            color: #777;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: var(--soft-blue);
+            margin: 10px 0 20px;
+            display: block;
+        }
+        
+        /* Custom Order Section */
+        .custom-order {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--soft-blue) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            border-radius: 30px;
+            margin: 50px auto;
+            overflow: hidden;
+            max-width: 1200px;
+        }
+        
+        .custom-order .section-title {
+            color: white;
+        }
+        
+        .custom-order-content {
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        .custom-order-steps {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+        
+        .custom-step {
+            flex: 0 0 calc(25% - 30px);
+            padding: 20px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--soft-blue);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Order Form */
+        .order-form {
+            background: var(--cloud-white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            background: var(--milky-white);
+        }
+        
+        .form-control:focus {
+            border-color: var(--soft-blue);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--soft-blue);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+            margin-top: 100px;
+        }
+        
+        .footer-clouds {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23ffffff"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23ffffff"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23ffffff"/></svg>');
+            background-size: cover;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--cloud-white);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--milky-white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--cloud-white);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--cloud-white);
+            color: var(--soft-blue);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--milky-white);
+            font-size: 0.9rem;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: var(--cloud-white);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            padding: 40px;
+            animation: modalAppear 0.4s ease-out;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--soft-blue);
+        }
+        
+        #successMessage {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: #dff0d8;
+            border-radius: 15px;
+            color: #3c763d;
+            margin-top: 20px;
+        }
+        
+        /* Animations */
+        @keyframes modalAppear {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .custom-step {
+                flex: 0 0 calc(50% - 20px);
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--cloud-white);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(165, 209, 240, 0.2);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 80%;
+                margin: 10px auto;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 180px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .custom-step {
+                flex: 0 0 100%;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .logo-image {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .cloud-decoration {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-clouds"></div>
+        <div class="container header-container">
+            <div class="logo-container">
+                <div class="logo-image">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+CiAgPHBhdGggZmlsbD0iI2E1ZDFmMCIgZD0iTTUwLDguMzMgQzM1LjI2LDguMzMgMjMuMzMsMjAuMjYgMjMuMzMsMzUgQzIzLjMzLDQ5Ljc0IDM1LjI2LDYxLjY3IDUwLDYxLjY3IEM2NC43NCw2MS42NyA3Ni42Nyw0OS43NCA3Ni42NywzNSBDNzYuNjcsMjAuMjYgNjQuNzQsOC4zMyA1MCw4LjMzIFogTTM1LjI2LDQwLjI2IEMzNS4yNiw0MS45OCAzNC4xMyw0My4zMyAzMi42Nyw0My4zMyBDMzEuMjEsNDMuMzMgMzAuMDgsNDEuOTggMzAuMDgsNDAuMjYgQzMwLjA4LDM4LjU0IDMxLjIxLDM3LjE5IDMyLjY3LDM3LjE5IEMzNC4xMywzNy4xOSAzNS4yNiwzOC41NCAzNS4yNiw0MC4yNiBaIE02Ny45Miw0MC4yNiBDNjcuOTIsNDEuOTggNjYuNzksNDMuMzMgNjUuMzMsNDMuMzMgQzYzLjg3LDQzLjMzIDYyLjc0LDQxLjk4IDYyLjc0LDQwLjI2IEM2Mi43NCwzOC41NCA2My44NywzNy4xOSA2NS4zMywzNy4xOSBDNjYuNzksMzcuMTkgNjcuOTIsMzguNTQgNjcuOTIsNDAuMjYgWiBNNDIuNTgsMzAuNjcgQzQwLjI2LDMwLjY3IDM4LjMzLDMyLjYgMzguMzMsMzQuOTIgQzM4LjMzLDM3LjI0IDQwLjI2LDM5LjE3IDQyLjU4LDM5LjE3IEM0NC45LDM5LjE3IDQ2LjgzLDM3LjI0IDQ2LjgzLDM0LjkyIEM0Ni44MywzMi42IDQ0LjksMzAuNjcgNDIuNTgsMzAuNjcgWiBNNTcuNDIsMzAuNjcgQzU1LjEsMzAuNjcgNTMuMTcsMzIuNiA1My4xNywzNC45MiBDNTMuMTcsMzcuMjQgNTUuMSwzOS4xNyA1Ny40MiwzOS4xNyBDNTkuNzQsMzkuMTcgNjEuNjcsMzcuMjQgNjEuNjcsMzQuOTIgQzYxLjY3LDMyLjYgNTkuNzQsMzAuNjcgNTcuNDIsMzAuNjcgWiBNNTAsNDguMzMgQzQ1LjI2LDQ4LjMzIDQxLjExLDUwLjMgMzguNTYsNTMuMzMgQzQxLjExLDU2LjM2IDQ1LjI2LDU4LjMzIDUwLDU4LjMzIEM1NC43NCw1OC4zMyA1OC44OSw1Ni4zNiA2MS40NCw1My4zMyBDNTguODksNTAuMyA1NC43NCw0OC4zMyA1MCw0OC4zMyBaIE01MCw3NS44MyBDMzcuMjYsNzUuODMgMjYuNjcsNjUuMjQgMjYuNjcsNTIuNSBDMjYuNjcsMzkuNzYgMzcuMjYsMjkuMTcgNTAsMjkuMTcgQzYyLjc0LDI5LjE3IDczLjMzLDM5Ljc2IDczLjMzLDUyLjUgQzczLjMzLDY1LjI0IDYyLjc0LDc1LjgzIDUwLDc1LjgzIFoiLz4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUyLjUiIHI9IjIzLjMzIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=" alt="Логотип AnnToys">
+                </div>
+                <div class="logo-text">AnnToys</div>
+            </div>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#catalog">Каталог</a></li>
+                    <li><a href="#custom">На заказ</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="cloud-decoration cloud-1">
+            <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
+                <path fill="var(--cloud-white)" d="M20,40 Q30,20 50,30 Q70,10 90,30 Q100,40 90,45 Q80,50 60,45 Q40,60 20,50 Q10,45 20,40"/>
+            </svg>
+        </div>
+        <div class="cloud-decoration cloud-2">
+            <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
+                <path fill="var(--cloud-white)" d="M10,30 Q25,10 45,20 Q65,5 85,20 Q95,30 85,40 Q70,45 50,35 Q30,50 15,40 Q5,35 10,30"/>
+            </svg>
+        </div>
+        <div class="cloud-decoration cloud-3">
+            <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
+                <path fill="var(--cloud-white)" d="M15,35 Q30,15 55,25 Q75,10 90,25 Q100,35 90,42 Q75,48 55,40 Q35,52 20,45 Q10,40 15,35"/>
+            </svg>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1>Уникальные вязаные игрушки ручной работы</h1>
+                <p>Экологичные, безопасные и неповторимые друзья для вашего ребенка</p>
+                <div class="hero-buttons">
+                    <a href="#catalog" class="btn btn-primary">Выбрать игрушку</a>
+                    <a href="#custom" class="btn btn-secondary">Заказать индивидуальную</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-hand-sparkles"></i></div>
+                    <h3>100% ручная работа</h3>
+                    <p>Каждая игрушка создается вручную с любовью и вниманием к деталям</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Натуральные материалы</h3>
+                    <p>Только гипоаллергенная пряжа и экологичный наполнитель</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Индивидуальный дизайн</h3>
+                    <p>Создадим игрушку по вашему эскизу или фотографии</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-truck"></i></div>
+                    <h3>Бесплатная доставка</h3>
+                    <p>При заказе от 3000 рублей по всей России</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog -->
+    <section class="catalog" id="catalog">
+        <div class="container">
+            <h2 class="section-title">Наши игрушки</h2>
+            <div class="category-filter">
+                <button class="filter-btn active" data-category="all">Все</button>
+                <button class="filter-btn" data-category="animals">Животные</button>
+                <button class="filter-btn" data-category="fantasy">Фэнтези</button>
+                <button class="filter-btn" data-category="newyear">Новогодние</button>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-category="animals">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600078686889-8c42747c25fe?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=400" alt="Медвежонок Тедди">
+                    </div>
+                    <div class="product-info">
+                        <h3>Медвежонок Тедди</h3>
+                        <p>25 см, пряжа альпака</p>
+                        <span class="price">2 500 руб</span>
+                        <button class="btn order-btn">Заказать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="fantasy">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1589870465303-42c7a3a1aeb4?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=400" alt="Единорог Звездочка">
+                    </div>
+                    <div class="product-info">
+                        <h3>Единорог Звездочка</h3>
+                        <p>30 см, хлопковая пряжа</p>
+                        <span class="price">3 200 руб</span>
+                        <button class="btn order-btn">Заказать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="animals">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=400" alt="Кролик Пуфик">
+                    </div>
+                    <div class="product-info">
+                        <h3>Кролик Пуфик</h3>
+                        <p>20 см, мериносовая шерсть</p>
+                        <span class="price">2 800 руб</span>
+                        <button class="btn order-btn">Заказать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="fantasy">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1589870465303-42c7a3a1aeb4?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=400" alt="Дракончик Огнегрив">
+                    </div>
+                    <div class="product-info">
+                        <h3>Дракончик Огнегрив</h3>
+                        <p>28 см, акриловая пряжа</p>
+                        <span class="price">3 500 руб</span>
+                        <button class="btn order-btn">Заказать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="newyear">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600078686889-8c42747c25fe?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=400" alt="Снеговик Умка">
+                    </div>
+                    <div class="product-info">
+                        <h3>Снеговик Умка</h3>
+                        <p>22 см, мохеровая пряжа</p>
+                        <span class="price">2 900 руб</span>
+                        <button class="btn order-btn">Заказать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="animals">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=400" alt="Лисичка Рыжуля">
+                    </div>
+                    <div class="product-info">
+                        <h3>Лисичка Рыжуля</h3>
+                        <p>18 см, хлопковая пряжа</p>
+                        <span class="price">2 600 руб</span>
+                        <button class="btn order-btn">Заказать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Order Section -->
+    <section class="custom-order" id="custom">
+        <div class="container">
+            <h2 class="section-title">Игрушки на заказ</h2>
+            <div class="custom-order-content">
+                <p>Хотите уникальную игрушку по вашим эскизам или в особом стиле? Мы создадим эксклюзивную вязаную игрушку специально для вас!</p>
+            </div>
+            
+            <div class="custom-order-steps">
+                <div class="custom-step">
+                    <div class="step-number">1</div>
+                    <h3>Обсуждение</h3>
+                    <p>Расскажите нам о вашей идее</p>
+                </div>
+                <div class="custom-step">
+                    <div class="step-number">2</div>
+                    <h3>Дизайн</h3>
+                    <p>Создадим эскиз и утвердим детали</p>
+                </div>
+                <div class="custom-step">
+                    <div class="step-number">3</div>
+                    <h3>Изготовление</h3>
+                    <p>Вяжем игрушку по вашему заказу</p>
+                </div>
+                <div class="custom-step">
+                    <div class="step-number">4</div>
+                    <h3>Доставка</h3>
+                    <p>Отправляем готовую игрушку вам</p>
+                </div>
+            </div>
+            
+            <div class="order-form">
+                <h3>Заказать индивидуальную игрушку</h3>
+                <form id="customOrderForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="idea">Опишите вашу идею</label>
+                        <textarea id="idea" class="form-control" placeholder="Опишите желаемую игрушку, размер, цвета, особенности..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="attachment">Прикрепить эскиз (если есть)</label>
+                        <input type="file" id="attachment" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить заявку</button>
+                </form>
+                <div id="successMessage">
+                    <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 15px; color: #3c763d;"></i>
+                    <h3>Заявка отправлена!</h3>
+                    <p>Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacts">
+        <div class="footer-clouds"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo-container">
+                        <div class="logo-image">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+CiAgPHBhdGggZmlsbD0iI2E1ZDFmMCIgZD0iTTUwLDguMzMgQzM1LjI2LDguMzMgMjMuMzMsMjAuMjYgMjMuMzMsMzUgQzIzLjMzLDQ5Ljc0IDM1LjI2LDYxLjY3IDUwLDYxLjY3IEM2NC43NCw2MS42NyA3Ni42Nyw0OS43NCA3Ni42NywzNSBDNzYuNjcsMjAuMjYgNjQuNzQsOC4zMyA1MCw4LjMzIFogTTM1LjI2LDQwLjI2IEMzNS4yNiw0MS45OCAzNC4xMyw0My4zMyAzMi42Nyw0My4zMyBDMzEuMjEsNDMuMzMgMzAuMDgsNDEuOTggMzAuMDgsNDAuMjYgQzMwLjA4LDM4LjU0IDMxLjIxLDM3LjE5IDMyLjY3LDM3LjE5IEMzNC4xMywzNy4xOSAzNS4yNiwzOC41NCAzNS4yNiw0MC4yNiBaIE02Ny45Miw0MC4yNiBDNjcuOTIsNDEuOTggNjYuNzksNDMuMzMgNjUuMzMsNDMuMzMgQzYzLjg3LDQzLjMzIDYyLjc0LDQxLjk4IDYyLjc0LDQwLjI2IEM2Mi43NCwzOC41NCA2My44NywzNy4xOSA2NS4zMywzNy4xOSBDNjYuNzksMzcuMTkgNjcuOTIsMzguNTQgNjcuOTIsNDAuMjYgWiBNNDIuNTgsMzAuNjcgQzQwLjI2LDMwLjY3IDM4LjMzLDMyLjYgMzguMzMsMzQuOTIgQzM4LjMzLDM3LjI0IDQwLjI2LDM5LjE3IDQyLjU4LDM5LjE3IEM0NC45LDM5LjE3IDQ2LjgzLDM3LjI0IDQ2LjgzLDM0LjkyIEM0Ni44MywzMi42IDQ0LjksMzAuNjcgNDIuNTgsMzAuNjcgWiBNNTcuNDIsMzAuNjcgQzU1LjEsMzAuNjcgNTMuMTcsMzIuNiA1My4xNywzNC45MiBDNTMuMTcsMzcuMjQgNTUuMSwzOS4xNyA1Ny40MiwzOS4xNyBDNTkuNzQsMzkuMTcgNjEuNjcsMzcuMjQgNjEuNjcsMzQuOTIgQzYxLjY3LDMyLjYgNTkuNzQsMzAuNjcgNTcuNDIsMzAuNjcgWiBNNTAsNDguMzMgQzQ1LjI2LDQ4LjMzIDQxLjExLDUwLjMgMzguNTYsNTMuMzMgQzQxLjExLDU2LjM2IDQ1LjI2LDU4LjMzIDUwLDU4LjMzIEM1NC43NCw1OC4zMyA1OC44OSw1Ni4zNiA2MS40NCw1My4zMyBDNTguODksNTAuMyA1NC43NCw0OC4zMyA1MCw0OC4zMyBaIE01MCw3NS44MyBDMzcuMjYsNzUuODMgMjYuNjcsNjUuMjQgMjYuNjcsNTIuNSBDMjYuNjcsMzkuNzYgMzcuMjYsMjkuMTcgNTAsMjkuMTcgQzYyLjc0LDI5LjE3IDczLjMzLDM5Ljc2IDczLjMzLDUyLjUgQzczLjMzLDY1LjI0IDYyLjc0LDc1LjgzIDUwLDc1LjgzIFoiLz4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUyLjUiIHI9IjIzLjMzIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=" alt="Логотип AnnToys">
+                        </div>
+                        <div class="logo-text">AnnToys</div>
+                    </div>
+                    <p>Вязаные игрушки ручной работы с любовью и заботой.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Меню</h3>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#catalog">Каталог</a></li>
+                        <li><a href="#custom">На заказ</a></li>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +7 (999) 123-45-67</li>
+                        <li><i class="fas fa-envelope"></i> info@anntoys.ru</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Творческая, 15</li>
+                        <li><i class="fas fa-clock"></i> Пн-Пт: 10:00 - 20:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AnnToys. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Оформление заказа</h2>
+            <form id="productOrderForm">
+                <div class="form-group">
+                    <label for="productName">Товар</label>
+                    <input type="text" id="productName" class="form-control" readonly>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerName">Ваше имя</label>
+                        <input type="text" id="customerName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Телефон</label>
+                        <input type="tel" id="customerPhone" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="customerEmail">Email</label>
+                    <input type="email" id="customerEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerAddress">Адрес доставки</label>
+                    <input type="text" id="customerAddress" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Подтвердить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('show');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if(this.getAttribute('href') === '#') return;
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('navMenu').classList.remove('show');
+                }
+            });
+        });
+
+        // Category Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const category = btn.getAttribute('data-category');
+                
+                productCards.forEach(card => {
+                    if(category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Product Order Modal
+        const orderBtns = document.querySelectorAll('.order-btn');
+        const modal = document.getElementById('orderModal');
+        const closeModal = document.querySelector('.close-modal');
+        const productNameInput = document.getElementById('productName');
+        
+        orderBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const productName = productCard.querySelector('h3').textContent;
+                
+                productNameInput.value = productName;
+                modal.style.display = 'flex';
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if(e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Form Submissions
+        document.getElementById('productOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Ваш заказ оформлен! Мы свяжемся с вами для подтверждения.');
+            modal.style.display = 'none';
+            this.reset();
+        });
+        
+        document.getElementById('customOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+
+        // Sticky Header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.boxShadow = '0 4px 20px rgba(165, 209, 240, 0.15)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
